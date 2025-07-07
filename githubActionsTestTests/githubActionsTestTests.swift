@@ -18,6 +18,7 @@ struct githubActionsTestTests {
     func testSumWithIntegers() {
         let calculator = Calculator(num1: 3, num2: 4)
         #expect(calculator.sum() == 7)
+        print("Gooooooooooddddd ⚠️⚠️")
     }
 
     @Test
