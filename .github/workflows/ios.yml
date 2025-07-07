@@ -20,6 +20,9 @@ jobs:
       - name: Install xcpretty
         run: gem install xcpretty
 
+      - name: Clean Derived Data
+        run: rm -rf ~/Library/Developer/Xcode/DerivedData
+
       - name: Build project (with xcpretty)
         run: |
           xcodebuild \
@@ -29,7 +32,7 @@ jobs:
             -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
             clean build | xcpretty
 
-      - name: Run tests and generate .xcresult (no xcpretty)
+      - name: Run tests and generate .xcresult (no xcpretty, no parallel)
         run: |
           xcodebuild \
             -project githubActionsTest.xcodeproj \
@@ -37,7 +40,8 @@ jobs:
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
             -resultBundlePath TestResults.xcresult \
-            test
+            test \
+            -parallel-testing-enabled NO
 
       - name: List contents of .xcresult folder
         run: ls -l TestResults.xcresult
