@@ -33,7 +33,7 @@ jobs:
           xcodebuild \
             -project githubActionsTest.xcodeproj \
             -scheme githubActionsTest \
-            -sdk iphonesimulator \            
+            -sdk iphonesimulator \
             test | xcpretty      
 
 
