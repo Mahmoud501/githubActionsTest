@@ -23,7 +23,7 @@ jobs:
             -project githubActionsTest.xcodeproj \
             -scheme githubActionsTest \
             -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.0'
+            -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4'
 
       - name: Run tests and generate .xcresult
         run: |
@@ -31,7 +31,7 @@ jobs:
             -project githubActionsTest.xcodeproj \
             -scheme githubActionsTest \
             -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.0' \
+            -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
             -resultBundlePath TestResults.xcresult
 
       - name: List .xcresult folder
