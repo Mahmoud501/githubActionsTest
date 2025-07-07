@@ -22,6 +22,8 @@ jobs:
 
       - name: List available simulators
         run: xcrun simctl list devices
+        xcrun simctl list
+
 
       - name: Build project
         run: |
