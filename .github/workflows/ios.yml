@@ -19,26 +19,18 @@ jobs:
 
       - name: Build project
         run: |
-          xcodebuild build \
-            -project githubActionsTest.xcodeproj \
-            -scheme githubActionsTest \
-            -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4'
-
-      - name: Run tests and generate .xcresult
-        run: |
-          xcodebuild test \
+          xcodebuild \
             -project githubActionsTest.xcodeproj \
             -scheme githubActionsTest \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
-            -resultBundlePath TestResults.xcresult
+            clean build
 
-      - name: List .xcresult folder
-        run: ls -l TestResults.xcresult
-
-      - name: Upload test results
-        uses: actions/upload-artifact@v4
-        with:
-          name: TestResults
-          path: TestResults.xcresult
+      - name: Run tests
+        run: |
+          xcodebuild \
+            -project githubActionsTest.xcodeproj \
+            -scheme githubActionsTest \
+            -sdk iphonesimulator \
+            -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
+            test
