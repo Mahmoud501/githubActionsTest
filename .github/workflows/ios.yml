@@ -24,7 +24,7 @@ jobs:
         run: xcrun simctl list devices
         
       - name: list available macos
-        run: xcrun simctl list
+        run: xcrun simctl list runtimes
 
       - name: Build project
         run: |
