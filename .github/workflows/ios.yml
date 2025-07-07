@@ -19,7 +19,7 @@ jobs:
 
       - name: Build project
         run: |
-          xcodebuild clean build \
+          xcodebuild build \
             -project githubActionsTest.xcodeproj \
             -scheme githubActionsTest \
             -sdk iphonesimulator \
