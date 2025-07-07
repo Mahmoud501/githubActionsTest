@@ -17,6 +17,9 @@ jobs:
       - name: Select Xcode version
         run: sudo xcode-select -s /Applications/Xcode_15.3.app
 
+      - name: Install xcpretty
+        run: gem install xcpretty
+
       - name: Build project
         run: |
           xcodebuild \
@@ -24,7 +27,7 @@ jobs:
             -scheme githubActionsTest \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
-            clean build
+            clean build | xcpretty
 
       - name: Run tests
         run: |
@@ -33,4 +36,4 @@ jobs:
             -scheme githubActionsTest \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
-            test
+            test | xcpretty
