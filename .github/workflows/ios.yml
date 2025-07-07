@@ -20,27 +20,25 @@ jobs:
       - name: Install xcpretty
         run: gem install xcpretty
 
-      - name: Build project (with xcpretty)
+      - name: Build project
         run: |
-          xcodebuild build \
+          xcodebuild \
             -project githubActionsTest.xcodeproj \
             -scheme githubActionsTest \
             -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.0' \
-          | xcpretty
+            -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
+            clean build | xcpretty
 
-      - name: Run tests (generate .xcresult, no xcpretty)
+      - name: Run tests
         run: |
-          xcodebuild test \
+          xcodebuild \
             -project githubActionsTest.xcodeproj \
             -scheme githubActionsTest \
             -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.0' \
+            -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
             -resultBundlePath TestResults.xcresult
-
-      - name: List .xcresult contents
-        run: ls -l TestResults.xcresult || echo "No .xcresult found"
-
+            test | xcpretty
+                        
       - name: Upload .xcresult artifact
         uses: actions/upload-artifact@v4
         with:
