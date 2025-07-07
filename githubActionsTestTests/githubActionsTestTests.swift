@@ -23,7 +23,7 @@ struct githubActionsTestTests {
     @Test
     func testSumWithDoubles() {
         let calculator = Calculator(num1: 2.5, num2: 3.1)
-        #expect(calculator.sum() == 5.6)
+        #expect(calculator.sum() == 5.116)
     }
 
 }

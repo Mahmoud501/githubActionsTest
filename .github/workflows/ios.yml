@@ -33,14 +33,7 @@ jobs:
           xcodebuild \
             -project githubActionsTest.xcodeproj \
             -scheme githubActionsTest \
-            -sdk iphonesimulator \
-            -resultBundlePath TestResults.xcresult \
-            test | xcpretty
-
-      - name: Upload .xcresult artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: TestResults
-          path: TestResults.xcresult
+            -sdk iphonesimulator \            
+            test | xcpretty      
 
 
