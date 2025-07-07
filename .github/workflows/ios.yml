@@ -28,19 +28,19 @@ jobs:
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
             clean build | xcpretty      
-     - name: Run tests and save result bundle
-       run: |
-         set -o pipefail && \
-         xcodebuild \
-         -project githubActionsTest.xcodeproj \
-         -scheme githubActionsTest \
-         -sdk iphonesimulator \
-         -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
-         -resultBundlePath TestResults.xcresult \
-         test
+      - name: Run tests and save result bundle
+        run: |
+          set -o pipefail && \
+          xcodebuild \
+           -project githubActionsTest.xcodeproj \
+          -scheme githubActionsTest \
+          -sdk iphonesimulator \
+          -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
+          -resultBundlePath TestResults.xcresult \
+          test
 
-    - name: Upload .xcresult
-      uses: actions/upload-artifact@v4
-      with:
-        name: TestResults
-        path: TestResults.xcresult
+      - name: Upload .xcresult
+        uses: actions/upload-artifact@v4
+        with:
+          name: TestResults
+          path: TestResults.xcresult
