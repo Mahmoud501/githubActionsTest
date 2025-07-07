@@ -36,6 +36,7 @@ jobs:
             -project githubActionsTest.xcodeproj \
             -scheme githubActionsTest \
             -sdk iphonesimulator \
+            -enableCodeCoverage YES \
             -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
             test | xcpretty
 
