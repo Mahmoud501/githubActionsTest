@@ -22,7 +22,7 @@ jobs:
           xcodebuild build \
           -project githubActionsTest.xcodeproj \
           -scheme 'githubActionsTest' \
-          -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.0'
+          -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.0' \
             
 
       - name: Run tests
@@ -31,5 +31,5 @@ jobs:
             -project githubActionsTest.xcodeproj \
             -scheme githubActionsTest \
             -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4'
+            -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
             
