@@ -26,7 +26,6 @@ jobs:
             -project githubActionsTest.xcodeproj \
             -scheme githubActionsTest \
             -sdk iphonesimulator \
-            -destination '=iOS Simulator' \
             clean build | xcpretty
 
       - name: Run tests
