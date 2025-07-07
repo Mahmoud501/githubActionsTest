@@ -36,5 +36,4 @@ jobs:
             -scheme githubActionsTest \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \            
-            test | xcpretty                              
-            -resultBundlePath TestResults.xcresult
+            test | xcpretty                                          
