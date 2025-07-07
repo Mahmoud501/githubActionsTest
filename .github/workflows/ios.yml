@@ -19,11 +19,9 @@ jobs:
 
       - name: Build project
         run: |
-          xcodebuild build \
-            -project githubActionsTest.xcodeproj \
-            -scheme githubActionsTest \
-            -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
+          xcodebuild test \
+          -scheme 'githubActionsTest' \
+          -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.0'
             
 
       - name: Run tests
