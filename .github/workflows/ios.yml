@@ -19,7 +19,7 @@ jobs:
 
       - name: Build project
         run: |
-          xcodebuild test \
+          xcodebuild build \
           -scheme 'githubActionsTest' \
           -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.0'
             
