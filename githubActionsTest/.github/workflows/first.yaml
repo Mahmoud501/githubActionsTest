@@ -1,0 +1,18 @@
+//
+//  first.yaml
+//  githubActionsTest
+//
+//  Created by Mahmoud Zaki on 07/07/2025.
+//
+
+name: Echo Example
+
+on: [push]
+
+jobs:
+  echo-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Say hello
+        run: echo "👋 Hello from GitHub Actions"
