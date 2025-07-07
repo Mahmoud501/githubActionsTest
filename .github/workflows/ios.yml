@@ -43,11 +43,3 @@ jobs:
             test \
             -parallel-testing-enabled NO
 
-      - name: List contents of .xcresult folder
-        run: ls -l TestResults.xcresult
-
-      - name: Upload .xcresult artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: TestResults
-          path: TestResults.xcresult
