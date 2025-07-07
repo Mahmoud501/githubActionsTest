@@ -27,13 +27,14 @@ jobs:
             -scheme githubActionsTest \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
-            clean build | xcpretty
-
-      - name: Run tests
+            clean build | xcpretty      
+      - name: Run tests (with verbose output)
         run: |
-          xcodebuild \
+          set -o pipefail && \
+            xcodebuild \
             -project githubActionsTest.xcodeproj \
             -scheme githubActionsTest \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
-            test | xcpretty
+            -only-testing:githubActionsTestTests \
+            test | xcpretty --test --color
