@@ -20,12 +20,6 @@ jobs:
       - name: Install xcpretty
         run: gem install xcpretty
 
-      - name: Show available schemes (debug)
-        run: xcodebuild -list -project githubActionsTest.xcodeproj
-
-      - name: List available simulators (debug)
-        run: xcrun simctl list devices
-
       - name: Build project (with xcpretty)
         run: |
           xcodebuild build \
