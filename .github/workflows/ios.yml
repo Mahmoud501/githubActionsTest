@@ -31,9 +31,4 @@ jobs:
 
       - name: Run tests
         run: |
-          xcodebuild \
-            -project githubActionsTest.xcodeproj \
-            -scheme githubActionsTest \
-            -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
-            test | xcpretty
+          swift test -v
