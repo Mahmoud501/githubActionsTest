@@ -20,7 +20,7 @@ jobs:
       - name: Install xcpretty
         run: gem install xcpretty
 
-      - name: Build project
+      - name: Build project (with xcpretty)
         run: |
           xcodebuild \
             -project githubActionsTest.xcodeproj \
@@ -29,7 +29,7 @@ jobs:
             -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
             clean build | xcpretty
 
-      - name: Run tests and generate .xcresult
+      - name: Run tests and generate .xcresult (no xcpretty)
         run: |
           xcodebuild \
             -project githubActionsTest.xcodeproj \
@@ -37,7 +37,10 @@ jobs:
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
             -resultBundlePath TestResults.xcresult \
-            test | xcpretty
+            test
+
+      - name: List contents of .xcresult folder
+        run: ls -l TestResults.xcresult
 
       - name: Upload .xcresult artifact
         uses: actions/upload-artifact@v4
