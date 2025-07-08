@@ -21,6 +21,15 @@ jobs:
 #        run: pod install
 #        working-directory: ./YourProjectFolder  # update if needed
 
+      - name: clean project
+        run: |
+          xcodebuild \
+            -project githubActionsTest.xcodeproj \
+            -scheme githubActionsTest \
+            -sdk iphonesimulator \
+            -destination 'platform=iOS Simulator,name=iPhone 15 Pro,OS=17.5' \
+            clean | xcpretty
+
       - name: Build and archive .xcarchive
         run: |
           xcodebuild clean -project githubActionsTest.xcodeproj \
