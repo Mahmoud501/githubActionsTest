@@ -43,7 +43,10 @@ jobs:
           echo $P12_PASSWORD
           echo $KEYCHAIN_PATH
           # import certificate to keychain
-          security import build_certificate.p12 -k login.keychain -P "123456" -A
+          ls -l $CERTIFICATE_PATH
+          file $CERTIFICATE_PATH
+
+#          security import $CERTIFICATE_PATH -k login.keychain -P "123456" -A
 #          security list-keychain -d user -s $KEYCHAIN_PATH
                     
 #          # apply provisioning profile
