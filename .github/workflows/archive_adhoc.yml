@@ -25,10 +25,16 @@ jobs:
         run: |
           xcodebuild clean -project githubActionsTest.xcodeproj \
             -scheme githubActionsTest \
+             -destination 'generic/platform=iOS' \
             -configuration Release \
             -derivedDataPath build/DerivedData
 
-       
+          xcodebuild archive -project githubActionsTest.xcodeproj \
+            -scheme githubActionsTest \
+            -configuration Release \
+            -archivePath build/githubActionsTest.xcarchive \
+            -destination 'generic/platform=iOS' \
+            -allowProvisioningUpdates
 
       - name: Export .ipa from archive
         run: |
