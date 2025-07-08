@@ -22,7 +22,7 @@ jobs:
     - name: Set up keychain and certificates
       run: |
         echo "$P12_BASE64" | base64 --decode > certificate.p12
-#        security create-keychain -p "" build.keychain
+        security create-keychain -p "" build.keychain
 #        security default-keychain -s build.keychain
 #        security unlock-keychain -p "" build.keychain
 #        security import certificate.p12 -k build.keychain -P "$P12_PASSWORD" -T /usr/bin/codesign
