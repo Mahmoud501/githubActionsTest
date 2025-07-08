@@ -19,14 +19,15 @@ jobs:
     - name: Install xcpretty
       run: gem install xcpretty
 
+    - name: cer
+      run: echo "$P12_BASE64" | base64 --decode > Certificates.p12
     - name: Set up keychain and certificates
-      run: |
-        base64 --decode > Certificates.p12
+      run: |        
         security create-keychain -p "" build.keychain
         security default-keychain -s build.keychain
         security unlock-keychain -p "" build.keychain        
         security import Certificates.p12 -k build.keychain -P "$P12_PASSWORD" -T /usr/bin/codesign
-#        security set-key-partition-list -S apple-tool:,apple: -s -k "" build.keychain
+        security set-key-partition-list -S apple-tool:,apple: -s -k "" build.keychain
 
 #    - name: Install provisioning profile
 #      run: |
