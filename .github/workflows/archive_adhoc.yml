@@ -74,7 +74,6 @@ jobs:
 
 
   firebase_uploading:
-    needs: build-archive
     runs-on: ubunto-latest
     steps:
       - name: Upload to Firebase App Distribution
