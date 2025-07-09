@@ -39,7 +39,7 @@ jobs:
           security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
           security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
  
-          security import $CERTIFICATE_PATH -k login.keychain -P "123456" -A
+          security import $CERTIFICATE_PATH -k login.keychain -P "$P12_PASSWORD" -A
           security list-keychain -d user -s $KEYCHAIN_PATH
                     
           # apply provisioning profile
