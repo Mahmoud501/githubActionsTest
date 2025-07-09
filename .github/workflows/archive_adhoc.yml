@@ -77,11 +77,17 @@ jobs:
     needs: build-archive
     runs-on: ubuntu-latest
     steps:
+      - name: Download .ipa
+        uses: actions/download-artifact@v4
+        with:
+          name: app
+          path: ./downloaded-app
+
       - name: Upload to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1.7.1
         with:
           appId: ${{ secrets.FIREBASE_IOS_APP_ID }}
           serviceCredentialsFileContent: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
           groups: testers
-          file: ${{ runner.temp }}/build/githubActionsTest.ipa
+          file: ./downloaded-app/githubActionsTest.ipa
 
