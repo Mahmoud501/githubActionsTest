@@ -74,7 +74,7 @@ jobs:
 
 
   firebase_uploading:
-    runs-on: ubunto-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Upload to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1.7.1
