@@ -10,9 +10,6 @@ jobs:
   build_with_signing:
     runs-on: ubuntu-latest
     steps:
-       - name: Debug: show Firebase credentials
-         run: echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}" | base64 --decode"
-
       # this was more debug as was curious what came pre-installed
       # GitHub shares this online, e.g. https://github.com/actions/runner-images/blob/macOS-12/20230224.1/images/macos/macos-12-Readme.md
 #      - name: Checkout repository
@@ -75,6 +72,8 @@ jobs:
 #          # path: ${{ runner.temp }}/build
 #          retention-days: 3
 #
+      - name: Debug show Firebase credentials
+        run: echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}" | base64 --decode"
 
       - name: Upload to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1.7.0
