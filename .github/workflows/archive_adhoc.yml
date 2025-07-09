@@ -73,7 +73,7 @@ jobs:
 #          retention-days: 3
 #
       - name: Debug show Firebase credentials
-        run: echo ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }} | base64 --decode"
+        run: echo "$FIREBASE_SERVICE_ACCOUNT_JSON" | base64 --decode"
 
 #      - name: Upload to Firebase App Distribution
 #        uses: wzieba/Firebase-Distribution-Github-Action@v1.7.0
