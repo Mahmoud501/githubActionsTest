@@ -51,7 +51,7 @@ jobs:
 
       - name: build archive
         run: |
-          xcodebuild -scheme "githubActionsTest" \
+          xcodebuild -workspace githubActionsTest.xcworkspace -scheme "githubActionsTest" \
           -archivePath $RUNNER_TEMP/githubActionsTest.xcarchive \
           -sdk iphoneos \
           -configuration Debug \
