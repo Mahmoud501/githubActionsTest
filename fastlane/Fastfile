@@ -9,7 +9,7 @@ platform :ios do
       in_house: false
     )
 
-    build_app(scheme: "YourAppScheme") # Replace with your scheme
+    build_app(scheme: "githubActionsTest") # Replace with your scheme
 
     upload_to_testflight(
       api_key: api_key,
