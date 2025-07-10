@@ -15,7 +15,10 @@ platform :ios do
       export_options: {
         signingStyle: "automatic"
       },
-      export_xcargs: "-allowProvisioningUpdates"
+      export_xcargs: "-allowProvisioningUpdates",
+      export_team_id: "L736RBD788",
+      clean: true
+
     )
 
     upload_to_testflight(api_key: api_key) # ✅ pass the API key here
