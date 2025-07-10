@@ -15,11 +15,16 @@ platform :ios do
       scheme: "githubActionsTest",
       export_method: "app-store",
       export_options: {
-        signingStyle: "automatic"
-      },
-      export_xcargs: "-allowProvisioningUpdates"
-    )
+      signingStyle: "manual",
+        provisioningProfiles: {
+          "appstoreload" => "Your Provisioning Profile Name"
+        }
+    }
+)
+
 
     upload_to_testflight
   end
 end
+
+
