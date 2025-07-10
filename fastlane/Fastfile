@@ -9,12 +9,15 @@ platform :ios do
       in_house: false
     )
 
-    build_app(scheme: "githubActionsTest") # Replace with your scheme
-
-    upload_to_testflight(
-      api_key: api_key,
-      skip_waiting_for_build_processing: true,
-      distribute_external: false # set to true if using external testers
+  build_app(
+      scheme: "githubActionsTest",
+      export_method: "app-store",
+      export_options: {
+        signingStyle: "automatic"
+      },
+      export_xcargs: "-allowProvisioningUpdates"
     )
+
+    upload_to_testflight
   end
 end
